@@ -11,7 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix
+.js('resources/js/app.js', 'public/js')
+.js('resources/js/pages/users.js', 'public/js/pages')
+.js('resources/js/pages/food.js', 'public/js/pages')
+.js('resources/js/pages/reservation.js', 'public/js/pages')
     .postCss('resources/css/app.css', 'public/css', [
-        //
+        require('postcss-import'),
+        require('tailwindcss'),
     ]);
+
+if (mix.inProduction()) {
+    mix.version();
+}
