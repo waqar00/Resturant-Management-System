@@ -12,7 +12,7 @@
         <hr>
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('foods.create') }}" class="btn btn-success float-right">Add New Chef</a>
+                <a href="{{ route('foods.create') }}" class="btn btn-success float-right">Add New Dish</a>
                 <div class="table-responsive">
                     <table style="overflow-x:auto" class="table table-bordered table-striped dt-responsive " id="foodTable" width="100%">
                         <thead>
@@ -20,6 +20,7 @@
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Description</th>
+                                <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

@@ -173,6 +173,7 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
+                    @method('POST')
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

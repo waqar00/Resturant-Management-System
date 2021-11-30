@@ -20,7 +20,7 @@
                                 <th>FoodName</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
-
+                                <th>Total Price</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

@@ -3,7 +3,10 @@ var __webpack_exports__ = {};
 /*!**************************************!*\
   !*** ./resources/js/pages/orders.js ***!
   \**************************************/
-var ordersTable = $('#ordersTable'); // hello
+var ordersTable = $('#ordersTable');
+var quantity;
+var price;
+var totalPrice; // hello
 
 var optionsDateTime = {
   year: "numeric",
@@ -55,13 +58,20 @@ $(document).ready(function () {
       data: "price",
       name: "price",
       render: function render(data) {
+        price = data;
         return data;
       }
     }, {
       data: "quantity",
       name: "quantity",
       render: function render(data) {
+        quantity = data;
         return data;
+      }
+    }, {
+      render: function render() {
+        totalPrice = quantity * price;
+        return totalPrice;
       }
     }, {
       data: 'id',

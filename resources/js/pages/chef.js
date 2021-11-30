@@ -74,7 +74,8 @@ function destroy(id) {
   cancelButtonColor:'#3085d6' ,
       confirmButtonText: "Delete",
       reverseButtons: true,
-    }).then((result) => {
+    })
+    .then((result) => {
         if(result.value === true){
             chefId.val(id);
             deleteChefForm.submit();

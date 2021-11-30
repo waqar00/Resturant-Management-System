@@ -123,8 +123,9 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Food::destroy($request->food_id);
+        return redirect()->back()->with('success', 'Data Deleted Successfully');
     }
 }

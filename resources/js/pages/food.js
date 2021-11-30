@@ -52,6 +52,14 @@ $(document).ready(function () {
           return data;
         }
       },
+      {
+          data:"image",
+          name:"image",
+          render:function render(data) {
+             return '<img src="/images/foodimages/'+data+'"/>'
+          }
+      }
+      ,
        {
       data: 'id',
       name: 'id',
@@ -67,7 +75,7 @@ function destroy(id) {
 
     Swal.fire({
       title: 'Are you sure?',
-      text: 'Do you want to delete this Role!',
+      text: 'Do you want to delete this Dish!',
       icon: "question",
       showCancelButton: true,
     confirmButtonColor:'#d33' ,
