@@ -1,9 +1,9 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-/*!*******************************************!*\
-  !*** ./resources/js/pages/reservation.js ***!
-  \*******************************************/
-var reservationTable = $('#reservationTable'); // hello
+/*!**************************************!*\
+  !*** ./resources/js/pages/orders.js ***!
+  \**************************************/
+var ordersTable = $('#ordersTable'); // hello
 
 var optionsDateTime = {
   year: "numeric",
@@ -13,7 +13,7 @@ var optionsDateTime = {
   minute: "2-digit"
 };
 $(document).ready(function () {
-  reservationTable.DataTable({
+  ordersTable.DataTable({
     lengthMenu: [[10, 25, 50, -1], ["10", "25", "50", "All"]],
     order: [[0, "desc"]],
     language: {
@@ -22,7 +22,7 @@ $(document).ready(function () {
     processing: true,
     serverSide: true,
     ajax: {
-      url: sosile.routes.reservation.get,
+      url: sosile.routes.orders.get,
       data: function data(d) {
         d.status = "all";
       }
@@ -34,38 +34,32 @@ $(document).ready(function () {
         return data;
       }
     }, {
-      data: "email",
-      name: "email",
-      render: function render(data) {
-        return data;
-      }
-    }, {
       data: "phone",
       name: "phone",
       render: function render(data) {
         return data;
       }
     }, {
-      data: "guest",
-      name: "guest",
+      data: "address",
+      name: "address",
       render: function render(data) {
         return data;
       }
     }, {
-      data: "date",
-      name: "date",
+      data: "foodname",
+      name: "foodname",
       render: function render(data) {
         return data;
       }
     }, {
-      data: "time",
-      name: "time",
+      data: "price",
+      name: "price",
       render: function render(data) {
         return data;
       }
     }, {
-      data: "message",
-      name: "message",
+      data: "quantity",
+      name: "quantity",
       render: function render(data) {
         return data;
       }
@@ -75,7 +69,7 @@ $(document).ready(function () {
       orderable: true,
       searchable: true,
       render: function render(data) {
-        return '<a href="javascript:void(0)" data-id="' + data + '" class="delete-user btn btn-danger  btn-sm">Delete</a>';
+        return '<a href="javascript:void(0)" data-id="' + data + '" class="delete-order btn btn-danger  btn-sm">Delete</a>';
       }
     }]
   });

@@ -3,5 +3,7 @@
     "/js/pages/users.js": "/js/pages/users.js",
     "/js/pages/food.js": "/js/pages/food.js",
     "/js/pages/reservation.js": "/js/pages/reservation.js",
+    "/js/pages/chef.js": "/js/pages/chef.js",
+    "/js/pages/orders.js": "/js/pages/orders.js",
     "/css/app.css": "/css/app.css"
 }

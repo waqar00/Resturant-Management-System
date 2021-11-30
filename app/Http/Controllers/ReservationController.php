@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\Chef;
-use App\Models\Order;
-
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
-use Illuminate\Foundation\Auth\User;
 
-
-class AdminController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,34 +15,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.users', compact('users'));
+
+        return view('admin.viewreservation');
     }
 
 
-    public function getUser(Request $request)
+    public function getReservation(Request $request)
     {
-        $user = User::all();
+        $data = Reservation::all();
 
-        return Datatables::of($user)
+        return Datatables::of($data)
             ->addIndexColumn()
             ->make(true);
     }
-
-    public function order()
-    {
-        return view('admin.orders');
-    }
-    public function getOrder(Request $request)
-    {
-        $order = Order::all();
-
-        return Datatables::of($order)
-            ->addIndexColumn()
-            ->make(true);
-    }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -55,9 +35,8 @@ class AdminController extends Controller
      */
     public function create()
     {
+        //
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -65,10 +44,20 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
+    public function store(Request $request)
+    {
+
+        $data = new Reservation;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->guest = $request->guest;
+        $data->date = $request->date;
+        $data->time = $request->time;
+        $data->message = $request->message;
+        $data->save();
+        return redirect()->back();
+    }
 
     /**
      * Display the specified resource.
@@ -76,10 +65,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
-    // {
-    //     //
-    // }
+    public function show($id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -87,10 +76,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function edit($id)
-    // {
-    //     //
-    // }
+    public function edit($id)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
@@ -110,9 +99,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-        User::destroy($request->user_id);
-        return redirect()->back()->with('success', 'User Deleted Successfully');
+        //
     }
 }

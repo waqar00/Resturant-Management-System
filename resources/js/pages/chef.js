@@ -1,12 +1,12 @@
 
-const userTable = $('#userTable');
-const userId = $('#userId');
-const deleteUserForm=$('#deleteUserForm');
+const chefTable = $('#chefTable');
+const deleteChefForm=$('#deleteChefForm');
+const chefId=$('#chefId');
 
-
-$(document).on('click', '.delete-user', function () {
-       destroy($(this).data('id'));
+$(document).on('click','.chef-delete',function(){
+destroy($(this).data('id'));
 });
+
 var optionsDateTime = {
   year: "numeric",
   month: "short",
@@ -15,8 +15,7 @@ var optionsDateTime = {
   minute: "2-digit"
 };
 $(document).ready(function () {
-    userTable.DataTable({
-
+    chefTable.DataTable({
     lengthMenu: [[10, 25, 50, -1], ["10", "25", "50", "All"]],
     order: [[0, "desc"]],
     language: {
@@ -24,8 +23,10 @@ $(document).ready(function () {
     },
     processing: true,
     serverSide: true,
+    responsive: true,
+
     ajax: {
-      url: sosile.routes.users.get,
+      url: sosile.routes.chefs.get,
       data: function data(d) {
         d.status = "all";
       }
@@ -38,8 +39,15 @@ $(document).ready(function () {
       }
     },
     {
-        data: "email",
-        name: "email",
+        data: "speciality",
+        name: "speciality",
+        render: function render(data) {
+          return data;
+        }
+      },
+      {
+        data: "image",
+        name: "image",
         render: function render(data) {
           return data;
         }
@@ -50,7 +58,7 @@ $(document).ready(function () {
       orderable: true,
       searchable: true,
       render: function render(data) {
-        return ' <a href="javascript:void(0)" data-id="'+data+'" class="delete-user btn btn-danger  btn-sm">Delete</a>';
+        return ' <a href="/chefs/'+data+'/edit" class="brn btn-primary" >Edit</a><a href="javascript:void(0)" data-id="'+data+'" class="chef-delete btn btn-danger  btn-sm">Delete</a>';
       }
     }]
   });
@@ -68,8 +76,8 @@ function destroy(id) {
       reverseButtons: true,
     }).then((result) => {
         if(result.value === true){
-            userId.val(id);
-            deleteUserForm.submit();
+            chefId.val(id);
+            deleteChefForm.submit();
           }
       });
   }

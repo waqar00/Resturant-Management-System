@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>RMS Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
@@ -21,10 +21,9 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset ('admin/assets/css/style.css') }}">
     <!-- End layout styles -->
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-  <link rel="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.bootstrap4.min.css" />
     <link rel="shortcut icon" href="{{ asset ('admin/assets/images/favicon.png')}}" />
-    @yield('script')
+    @yield('styles')
+
     {{-- <link rel="stylesheet" type="text/css') }}">" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script> --}}
   </head>
@@ -60,7 +59,7 @@
     <script src="{{ asset('admin/assets/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
     <script src="{{ asset('/js/app.js') }}"></script>
-@yield('script')
+    @yield('script')
 <script>
 
     var sosile = {
@@ -72,8 +71,14 @@
             get:"{{route('get.foods')}}"
              },
              reservation:{
-                 get:"{{route('get.reservation')}}"
-             }
+                 get:"{{route('getRservation')}}"
+             },
+             chefs:{
+                 get:"{{route('getchefs')}}"
+             },
+             orders:{
+                 get:"{{route('getorders')}}"
+            }
         }
 
     }

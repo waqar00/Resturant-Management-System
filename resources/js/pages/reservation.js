@@ -1,5 +1,6 @@
 
-const reservationTable = $('#reservationTable');
+var reservationTable = $('#reservationTable');
+// hello
 var optionsDateTime = {
   year: "numeric",
   month: "short",
@@ -8,7 +9,9 @@ var optionsDateTime = {
   minute: "2-digit"
 };
 $(document).ready(function () {
+
     reservationTable.DataTable({
+
     lengthMenu: [[10, 25, 50, -1], ["10", "25", "50", "All"]],
     order: [[0, "desc"]],
     language: {
@@ -22,7 +25,8 @@ $(document).ready(function () {
         d.status = "all";
       }
     },
-    columns: [{
+    columns: [
+      {
       data: "name",
       name: "name",
       render: function render(data) {
@@ -77,7 +81,7 @@ $(document).ready(function () {
       orderable: true,
       searchable: true,
       render: function render(data) {
-        return ' <a href="javascript:void(0)" data-id="'+data+'" class="delete-user btn btn-danger  btn-sm">Delete</a>';
+        return '<a href="javascript:void(0)" data-id="'+data+'" class="delete-user btn btn-danger  btn-sm">Delete</a>';
       }
     }]
   });

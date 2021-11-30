@@ -16,6 +16,8 @@ mix
 .js('resources/js/pages/users.js', 'public/js/pages')
 .js('resources/js/pages/food.js', 'public/js/pages')
 .js('resources/js/pages/reservation.js', 'public/js/pages')
+.js('resources/js/pages/chef.js', 'public/js/pages')
+.js('resources/js/pages/orders.js', 'public/js/pages')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),

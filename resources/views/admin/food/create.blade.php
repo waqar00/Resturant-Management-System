@@ -8,9 +8,9 @@
             {{ session('status') }}
         </h6>
     @endif
-    <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card">
+    <div class="row d-flex justify-content-center ">
+            <div class="col-md-6">
+              <div class="card border border-white rounded shadow-lg p-3 mb-5  bg-gray">
                 <div class="card-body">
                   <form class="forms-sample" method="post" action="{{ route('foods.store') }}" enctype="multipart/form-data">
                     @csrf

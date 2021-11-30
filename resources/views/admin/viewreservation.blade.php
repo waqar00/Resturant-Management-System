@@ -21,6 +21,7 @@
                                 <th>Date</th>
                                 <th>Time</th>
                                 <th>Message</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                     </table>
